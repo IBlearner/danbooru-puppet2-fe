@@ -1,0 +1,70 @@
+::-webkit-input-placeholder {
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: tomato;
+    height: 100vh;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 40vh;
+    width: 80vw;
+    border: 1px solid white;
+    background-color: tomato;
+    color: rgb(255, 241, 241);
+    font-size: 50px;
+
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid white;
+    margin-top: 5vh;
+    padding: 25px 75px;
+    border-radius: 9px;
+}
+
+.nameInput {
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+    color: white;
+    background-color: tomato;
+    border-bottom: 1px solid white;
+    font-size: 20px;
+
+    &:focus {
+        outline: none;
+
+    }
+}
+
+.submitButton {
+    background-color: tomato;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: 1px solid white;
+    margin-left: 30px;
+    font-size: 20px;
+
+    &:hover, &:focus {
+        border-bottom: 1px solid white;
+        cursor: pointer;
+    }
+}
