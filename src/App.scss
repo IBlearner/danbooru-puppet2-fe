@@ -107,26 +107,41 @@ form {
 }
 
 .updateCell {
+    //making flex to algin text vertical centre
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     border-left: 1px solid white;
     border-bottom: 1px solid white;
     height: 50%;
-    width: 10px;
+    font-size: 15px;
+    background-color: cornflowerblue;
 
     &:hover {
         background-color: white;
-        color: tomato;
+        color: cornflowerblue;
         cursor: pointer;
     }
 }
 
 .linkCell {
+    //making flex to algin text vertical centre
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     border-left: 1px solid white;
     height: 50%;
-    width: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 0 1px;
+    font-size: 10px;
+    background-color: cornflowerblue;
 
     &:hover {
         background-color: white;
-        color: tomato;
+        color: cornflowerblue;
         cursor: pointer;
     }
 }

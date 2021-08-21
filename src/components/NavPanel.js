@@ -3,7 +3,7 @@ import "../App.scss"
 
 class NavPanel extends Component {
     state = {
-
+        artist: ""
     }
 
     render() { 
@@ -17,22 +17,22 @@ class NavPanel extends Component {
 
 const mapArtist = (props) => {
     return props.data.map((elem) => {
-        return artistCell(elem)
+        return artistCell(elem, props)
     })
 }
 
-const artistCell = (artist) => {
-    let clss = "artist"
+const artistCell = (artist, props) => {
+    let clss = "artistCell"
     if (artist === "pepper0") clss += " success"
     else clss += " unknown"
     return (
-        <div className={clss}>
-            <div className="artistCell">
+        <div className="artist">
+            <div className={clss} onClick={() => props.selectArtist(artist)}>
                 {artist}
             </div>
             <div style={{display: 'flex', flexDirection: 'column', float: 'right'}}>
-                <div className="updateCell"></div>
-                <div className="linkCell"></div>
+                <div className="updateCell">&#128472;</div>
+                <a className="linkCell" href={`https://danbooru.donmai.us/posts?page=1&tags=${artist}`}>&#10148;</a>
             </div>
         </div>
     )
@@ -40,10 +40,6 @@ const artistCell = (artist) => {
 
 const updateArtist = () => {
 
-}
-
-const goToArtist = () => {
-    
 }
 
 export default NavPanel
