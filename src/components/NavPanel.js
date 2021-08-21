@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import "../App.scss"
 
-this.state = {
-    link: "ford"
+class NavPanel extends Component {
+    state = {
+
+    }
+
+    render() { 
+        return (
+            <div className="navContainer">
+                {mapArtist(this.props)}
+            </div>
+        );
+    }
 }
 
 const mapArtist = (props) => {
@@ -28,12 +38,12 @@ const artistCell = (artist) => {
     )
 }
 
-const NavPanel = (props) => {
-    return (
-        <div className="navContainer">
-            {mapArtist(props)}
-        </div>
-    )
+const updateArtist = () => {
+
+}
+
+const goToArtist = () => {
+    
 }
 
 export default NavPanel
