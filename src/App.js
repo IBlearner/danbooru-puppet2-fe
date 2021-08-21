@@ -7,12 +7,16 @@ function App() {
     const [artistFolders, setArtistFolders] = useState([])
     
     const getFolderContents = async (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         console.log("function running")
         let response = await fetch("http://localhost:3000")
         let data = await response.json()
         setArtistFolders(data)
     }
+
+    useEffect(() => {
+        getFolderContents()
+    }, [])
 
     useEffect(() => {
         console.log(artistFolders)

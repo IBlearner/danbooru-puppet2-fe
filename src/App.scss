@@ -72,3 +72,61 @@ form {
         color: tomato;
     }
 }
+
+.navContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.artist {
+    display: flex;
+    flex-direction: row;
+
+    border: 1px solid white;
+    margin: 5px 5px;
+    color: white;
+}
+
+.success {
+    background-color: rgb(67, 184, 67);
+}
+
+.unknown {
+    background: grey;
+}
+
+.artistCell {
+    padding: 5px 15px;
+
+    &:hover {
+        background-color: white;
+        color: tomato;
+        cursor: pointer;
+    }
+}
+
+.updateCell {
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    height: 50%;
+    width: 10px;
+
+    &:hover {
+        background-color: white;
+        color: tomato;
+        cursor: pointer;
+    }
+}
+
+.linkCell {
+    border-left: 1px solid white;
+    height: 50%;
+    width: 10px;
+
+    &:hover {
+        background-color: white;
+        color: tomato;
+        cursor: pointer;
+    }
+}
