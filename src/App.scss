@@ -145,3 +145,9 @@ form {
         cursor: pointer;
     }
 }
+
+.pictureCollage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
