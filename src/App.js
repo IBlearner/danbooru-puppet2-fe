@@ -11,7 +11,7 @@ function App() {
     const getFolderContents = async (e) => {
         // e.preventDefault()
         console.log("function running")
-        let response = await fetch("http://localhost:3333")
+        let response = await fetch(`${process.env.REACT_APP_SERVER_PATH}`)
         let data = await response.json()
         setArtistFolders(data)
     }
@@ -33,6 +33,7 @@ function App() {
             <div className="banner">
                 Danbooru
             </div>
+            <div>{process.env.REACT_APP_HI}</div>
             {/* <form>
                 <input className="nameInput" type="text" placeholder="Enter artist name"></input>
                 <button className="submitButton" onClick={(e) => getFolderContents(e)}>Search</button>

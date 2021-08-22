@@ -25,7 +25,7 @@ class PicturePanel extends Component {
 }
 
 const getPictures = async (artist) => {
-    let response = await fetch(`http://localhost:3333/${artist}`)
+    let response = await fetch(`${process.env.REACT_APP_SERVER_PATH}/${artist}`)
     let data = await response.json()
     return data
 }
@@ -33,7 +33,8 @@ const getPictures = async (artist) => {
 const mapPictures = (artist, pictures) => {
     return pictures.map((elem) => {
         return (
-            <img src={`file://C:/Users/kienv/Documents/puppeteer/danbooru-puppet2/danbooru-puppet2-be/downloads/muramura_hito/${elem}`}/>
+            //cannot display a locally saved image for security purposes of not letting others look at data stored on host computers hard drive data
+            <img src={`${process.env.REACT_APP_SERVER_PATH}/${artist}/${elem}`}/>
         )
     })
 }
