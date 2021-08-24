@@ -10,6 +10,7 @@
 
     background-color: tomato;
     height: 100vh;
+    width: 100%;
 }
 
 .banner {
@@ -150,4 +151,31 @@ form {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
+
+    .singleImage {
+        width: 25%;
+        
+        img {
+            width: 100%;
+            height: auto;    
+        }
+    }
 }
+
+// .pictureCollage {
+//     line-height: 0;
+   
+//     -webkit-column-count: 5;
+//     -webkit-column-gap: 0;
+//     // -moz-column-count: 5;
+//     // -moz-column-gap: 0;
+//     column-count: 5;
+//     column-gap: 0px;  
+
+//     img {
+//         width: 100% !important;
+//         height: auto !important;
+//         border: 1px solid black;
+//     }
+// }

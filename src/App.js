@@ -33,7 +33,6 @@ function App() {
             <div className="banner">
                 Danbooru
             </div>
-            <div>{process.env.REACT_APP_HI}</div>
             {/* <form>
                 <input className="nameInput" type="text" placeholder="Enter artist name"></input>
                 <button className="submitButton" onClick={(e) => getFolderContents(e)}>Search</button>

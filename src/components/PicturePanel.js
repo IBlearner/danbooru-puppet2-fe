@@ -14,7 +14,6 @@ class PicturePanel extends Component {
     render() { 
         return (
             <Fragment>
-                <div>PicturePanel</div>
                 <div className="pictureCollage">
                     {mapPictures(this.props.artist, this.state.pictures)}
                 </div>
@@ -34,7 +33,9 @@ const mapPictures = (artist, pictures) => {
     return pictures.map((elem) => {
         return (
             //cannot display a locally saved image for security purposes of not letting others look at data stored on host computers hard drive data
-            <img src={`${process.env.REACT_APP_SERVER_PATH}/${artist}/${elem}`}/>
+            <div className="singleImage">
+                <img src={`${process.env.REACT_APP_SERVER_PATH}/${artist}/${elem}`}/>
+            </div>
         )
     })
 }
