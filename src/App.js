@@ -1,8 +1,9 @@
 import './App.scss';
-import Input from "./components/Input"
-import NavPanel from './components/NavPanel';
 import { useState, useEffect } from "react"
+import NavPanel from './components/NavPanel';
 import PicturePanel from './components/PicturePanel';
+import ArtistPanel from './components/ArtistPanel';
+import AddSection from './components/AddSection';
 
 function App() {
     const [artist, setArtist] = useState("")
@@ -33,13 +34,11 @@ function App() {
             <div className="banner">
                 Danbooru
             </div>
-            {/* <form>
-                <input className="nameInput" type="text" placeholder="Enter artist name"></input>
-                <button className="submitButton" onClick={(e) => getFolderContents(e)}>Search</button>
-            </form> */}
+            <NavPanel />
+            <AddSection />
             {
                 artist === "" ?
-                <div><NavPanel data={artistFolders} selectArtist={selectArtist}/></div> :
+                <div><ArtistPanel data={artistFolders} selectArtist={selectArtist}/></div> :
                 <div><PicturePanel artist={artist}/></div>
             }
         </div>

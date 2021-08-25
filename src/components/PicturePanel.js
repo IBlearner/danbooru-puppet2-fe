@@ -34,7 +34,7 @@ const mapPictures = (artist, pictures) => {
         return (
             //cannot display a locally saved image for security purposes of not letting others look at data stored on host computers hard drive data
             <div className="singleImage">
-                <img src={`${process.env.REACT_APP_SERVER_PATH}/${artist}/${elem}`}/>
+                <img src={`${process.env.REACT_APP_SERVER_PATH}/${artist}/${elem}`} alt={`${artist}/${elem}`}/>
             </div>
         )
     })
