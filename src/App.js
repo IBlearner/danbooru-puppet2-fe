@@ -28,17 +28,25 @@ function App() {
         setArtist(artist)
     }
 
-    const checkArtistValidity = (name) => {
-        if (artistFolders.includes(name)) return "existing artist"
-        else return ""
+    const checkArtistValidity = async (artist) => {
+        //check to see if the artist already exists
+        if (artistFolders.includes(artist)) return "existing artist"
 
-        //if all passes down to here return an "ok"
-        createArtistFiles(name)
-        return "ok"
+        //then request BE to check on the actual page to see if it's an artist
+        let response = await fetch(`${process.env.REACT_APP_SERVER_PATH}/add/${artist}`)
+        let artistExists = await response.json()
+        console.log(`The artist exists: ${artistExists}`)
+
+        if (!artistExists) return "unfound artist"
+
+        //if all is good then return an ok status and start creating folders for it
+        else if (artistExists) {
+            createArtistFiles(artist)
+            return "ok"
+        }
     }
 
-    const createArtistFiles = (name) => {
-
+    const createArtistFiles = (artist) => {
     }
 
     return (
