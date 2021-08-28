@@ -8,7 +8,7 @@ class ArtistPanel extends Component {
 
     render() { 
         return (
-            <div className="navContainer">
+            <div className="artistPanelContainer">
                 {mapArtist(this.props)}
             </div>
         );
