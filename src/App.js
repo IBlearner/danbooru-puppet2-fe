@@ -16,9 +16,8 @@ function App() {
         console.log(artistFolders)
     }, [artistFolders])
 
-    const getFolderContents = async (e) => {
-        // e.preventDefault()
-        console.log("Loading function")
+    const getFolderContents = async () => {
+        console.log("Fetching root dir for folders")
         let response = await fetch(`${process.env.REACT_APP_SERVER_PATH}`)
         let data = await response.json()
         setArtistFolders(data)
@@ -46,7 +45,16 @@ function App() {
         }
     }
 
-    const createArtistFiles = (artist) => {
+    const createArtistFiles = async (artist) => {
+        await fetch(`${process.env.REACT_APP_SERVER_PATH}/createFiles`, {
+            method: 'POST',
+            mode: "cors",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({"artist": artist})
+        })
+        getFolderContents()
     }
 
     return (
