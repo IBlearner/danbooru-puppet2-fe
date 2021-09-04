@@ -87,7 +87,9 @@ function App() {
                 <div className="title"> Danbooru</div>
                 <div className="homeButton" onClick={() => goToPage("home")}>Home</div>
             </div>
-            <AddSection checkArtistValidity={checkArtistValidity}/>
+            {
+                currentPage === "home" ? <AddSection checkArtistValidity={checkArtistValidity}/> : null
+            }
             { pageNavigator() }
         </div>
     );
