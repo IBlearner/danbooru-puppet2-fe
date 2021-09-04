@@ -7,6 +7,7 @@ import AddSection from './components/AddSection';
 function App() {
     const [artist, setArtist] = useState("")
     const [artistFolders, setArtistFolders] = useState([])
+    const [currentPage, setCurrentPage] = useState("home")
 
     useEffect(() => {
         getFolderContents()
@@ -25,6 +26,28 @@ function App() {
 
     const selectArtist = (artist) => {
         setArtist(artist)
+        goToPage("gallary")
+    }
+
+    const goToPage = (desiredPage) => {
+        setCurrentPage(desiredPage)
+    }
+
+    const pageNavigator = () => {
+        let content
+        switch (currentPage) {
+            case "gallary":
+                content = <div><PicturePanel artist={artist}/></div>
+                break;
+
+            case "home":
+                content = <div><ArtistPanel data={artistFolders} selectArtist={selectArtist}/></div>
+                break;
+    
+            default:
+                content = <div><ArtistPanel data={artistFolders} selectArtist={selectArtist}/></div>
+        }
+        return content
     }
 
     const checkArtistValidity = async (artist) => {
@@ -60,14 +83,12 @@ function App() {
     return (
         <div className="container">
             <div className="banner">
-                Danbooru
+                <div className="homeButton">Placeholder</div>
+                <div className="title"> Danbooru</div>
+                <div className="homeButton" onClick={() => goToPage("home")}>Home</div>
             </div>
             <AddSection checkArtistValidity={checkArtistValidity}/>
-            {
-                artist === "" ?
-                <div><ArtistPanel data={artistFolders} selectArtist={selectArtist}/></div> :
-                <div><PicturePanel artist={artist}/></div>
-            }
+            { pageNavigator() }
         </div>
     );
 }

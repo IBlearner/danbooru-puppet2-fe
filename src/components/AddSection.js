@@ -40,7 +40,7 @@ class AddSection extends Component {
         return (
             <Fragment>
                 <form>
-                    <input name="nameInput" className="addArtistInput" placeholder="Enter an artist name.." onChange={(e) => this.handleInputChange(e)}/>
+                    <input name="nameInput" className="addArtistInput" placeholder="Add a new artist here.." onChange={(e) => this.handleInputChange(e)}/>
                     <button className="addArtistButton" onClick={(e) => this.handleSubmit(e)}>+</button>
                 </form>
                 {this.displayResponse()}

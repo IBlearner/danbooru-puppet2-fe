@@ -32,7 +32,7 @@ const artistCell = (artist, props) => {
             </div>
             <div style={{display: 'flex', flexDirection: 'column', float: 'right'}}>
                 <div className="updateCell">&#128472;</div>
-                <a className="linkCell" href={`https://danbooru.donmai.us/posts?page=1&tags=${artist}`}>&#10148;</a>
+                <a className="linkCell" href={`https://danbooru.donmai.us/posts?page=1&tags=${artist}`} target="_blank">&#10148;</a>
             </div>
         </div>
     )
