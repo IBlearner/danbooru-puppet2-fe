@@ -35,21 +35,45 @@
     
     .homeButton {
         border: 1px solid white;
+        cursor: pointer;
     }
+}
+
+.belowBanner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    border: 1px solid white;
+    background-color: tomato;
+    color: rgb(255, 241, 241);
 }
 
 form {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     border: 1px solid white;
-    padding: 15px 65px;
+    padding: 15px 25px;
     border-radius: 9px;
+
+    .addArtistButton {
+        border: 2px solid white;
+        border-radius: 3px;
+        
+        color: white;
+        background-color: tomato;
+        font-size: 25px;
+    
+        &:focus, &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
-.addArtistInput {
+.addArtistInput, .searchBar {
     border: none;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -62,19 +86,6 @@ form {
     &:focus {
         outline: none;
         box-shadow: outset 10 0 5px 3px white;
-    }
-}
-
-.addArtistButton {
-    border: 2px solid white;
-    border-radius: 3px;
-    
-    color: white;
-    background-color: tomato;
-    font-size: 25px;
-
-    &:focus, &:hover {
-        cursor: pointer;
     }
 }
 

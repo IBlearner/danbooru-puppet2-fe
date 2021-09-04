@@ -7,6 +7,7 @@ import AddSection from './components/AddSection';
 function App() {
     const [artist, setArtist] = useState("")
     const [artistFolders, setArtistFolders] = useState([])
+    const [searchedArtistFolders, setSearchedArtistFolders] = useState([])
     const [currentPage, setCurrentPage] = useState("home")
 
     useEffect(() => {
@@ -34,20 +35,18 @@ function App() {
     }
 
     const pageNavigator = () => {
-        let content
-        switch (currentPage) {
-            case "gallary":
-                content = <div><PicturePanel artist={artist}/></div>
-                break;
+        if (currentPage === "gallary") return <div><PicturePanel artist={artist}/></div>
+        else if (currentPage === "home") return <div><ArtistPanel data={searchedArtistFolders.length === 0 ? artistFolders : searchedArtistFolders} selectArtist={selectArtist}/></div>
+        else return <div><ArtistPanel data={artistFolders} selectArtist={selectArtist}/></div>
+    }
 
-            case "home":
-                content = <div><ArtistPanel data={artistFolders} selectArtist={selectArtist}/></div>
-                break;
-    
-            default:
-                content = <div><ArtistPanel data={artistFolders} selectArtist={selectArtist}/></div>
-        }
-        return content
+    const handleSearchChange = (e) => {
+        let searchTerm = e.target.value
+        let filteredArray = artistFolders.filter((elem) => {
+            if (elem.includes(searchTerm)) return elem
+        })
+
+        setSearchedArtistFolders(filteredArray)
     }
 
     const checkArtistValidity = async (artist) => {
@@ -88,7 +87,12 @@ function App() {
                 <div className="homeButton" onClick={() => goToPage("home")}>Home</div>
             </div>
             {
-                currentPage === "home" ? <AddSection checkArtistValidity={checkArtistValidity}/> : null
+                currentPage === "home" ?
+                <div className="belowBanner">
+                    <input className="searchBar" placeholder="Searh for an artist.." onChange={(e) => handleSearchChange(e)}></input>
+                    <AddSection checkArtistValidity={checkArtistValidity}/>
+                </div>
+                : null
             }
             { pageNavigator() }
         </div>
